@@ -18,9 +18,8 @@ program
   .argument("[target-mongodb-url]", "target server mongodb://target-host/url", process.env.TARGET_MONGO_URL)
   .option("--skip-missing-collections", "Skip _id indexes that indicate missing collections", false)
   .action((sourceMongodbUrl, targetMongodbUrl, options) => {
+    // TODO: add handling for --skip-missing-collections option
     const skipMissingCollections = options.skipMissingCollections ? true : false;
-    console.log("shouldSkipMissingCollections = " + skipMissingCollections);
-    console.log("Option :" + JSON.stringify(options));
     runComparison(sourceMongodbUrl, targetMongodbUrl).catch((error) => {
       logger.error("Unhandled error during command execution:", error);
     });
