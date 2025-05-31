@@ -2,11 +2,9 @@
 
 import { getMissingIndexes } from "./src/check-indexes.js";
 import logger from "./src/util/logger.js";
-// import * as packageInfo from "./package.json";
-import fs from "node:fs";
-const { version } = JSON.parse(fs.readFileSync('./package.json'));
 import { Command } from "commander";
 const program = new Command();
+const version = "1.0.1";
 
 program
   .name("mongo-compare-indexes")
