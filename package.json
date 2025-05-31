@@ -3,6 +3,7 @@
   "version": "0.9.0",
   "description": "compare indexes in two mongo instances",
   "main": "index.js",
+  "bin": "./run.js",
   "type": "module",
   "scripts": {
     "test": "jest",
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/alexgalkin/mongo-compare-indexes#readme",
   "dependencies": {
+    "commander": "^14.0.0",
     "mongoose": "^8.15.1"
   }
 }
