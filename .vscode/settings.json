@@ -1,0 +1,9 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#254f13",
+    "titleBar.activeBackground": "#285c12",
+    "titleBar.activeForeground": "#FFFCFD"
+  },
+  "cSpell.language": "en,uk",
+  "cSpell.words": ["ssh"]
+}

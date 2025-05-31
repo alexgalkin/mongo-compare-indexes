@@ -1,0 +1,31 @@
+{
+  "name": "mongo-compare-indexes",
+  "version": "0.9.0",
+  "description": "compare indexes in two mongo instances",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexgalkin/mongo-compare-indexes.git"
+  },
+  "keywords": [
+    "mongo-indexes",
+    "mongo-indexes-compare",
+    "mongo-compare-indexes",
+    "mongodb",
+    "mongodb-indexes"
+  ],
+  "author": "Alex Halkin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexgalkin/mongo-compare-indexes/issues"
+  },
+  "homepage": "https://github.com/alexgalkin/mongo-compare-indexes#readme",
+  "dependencies": {
+    "mongoose": "^8.15.1"
+  }
+}
