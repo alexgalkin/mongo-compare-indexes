@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const logger = require("./util/logger");
+import { createConnection } from "mongoose";
+import logger from "./util/logger.js";
 
 /**
  * Connects to the source and target MongoDB databases.
@@ -10,11 +10,11 @@ const logger = require("./util/logger");
 async function getConnectionsToDbs(sourceUrl, targetUrl, dbOptions, debugNote) {
   try {
     const opts = dbOptions || {};
-    const sourceConnection = await mongoose.createConnection(sourceUrl, opts).asPromise();
+    const sourceConnection = await createConnection(sourceUrl, opts).asPromise();
     if (debugNote) {
       logger.debug("Successfully connected to source MongoDB database: " + sourceUrl);
     }
-    const targetConnection = await mongoose.createConnection(targetUrl, opts).asPromise();
+    const targetConnection = await createConnection(targetUrl, opts).asPromise();
     if (debugNote) {
       logger.debug("Successfully connected to target MongoDB database: " + targetUrl);
     }
@@ -76,7 +76,6 @@ async function compareIndexes(sourceIndexes, targetIndexes, debugNote) {
         collection: key.split("::")[0],
         index_name: key.split("::")[1],
         index_value: value,
-        index_full_name: key,
       });
       if (debugNote) {
         logger.debug(debugNote + "[source]: " + key + " :: " + JSON.stringify(value));
@@ -89,7 +88,6 @@ async function compareIndexes(sourceIndexes, targetIndexes, debugNote) {
         collection: key.split("::")[0],
         index_name: key.split("::")[1],
         index_value: value,
-        index_full_name: key,
       });
       if (debugNote) {
         logger.debug(debugNote + "[target]: " + key + " :: " + JSON.stringify(value));
@@ -159,8 +157,7 @@ async function executeIndexesComparison(sourceUrl, targetUrl, dbOptions, debugNo
   await targetConnection.close();
   await sourceConnection.close();
 }
-
-module.exports = {
-  executeIndexesComparison,
+export {
   getMissingIndexes,
+  executeIndexesComparison,
 };

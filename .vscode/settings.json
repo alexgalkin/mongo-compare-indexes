@@ -5,5 +5,8 @@
     "titleBar.activeForeground": "#FFFCFD"
   },
   "cSpell.language": "en,uk",
-  "cSpell.words": ["ssh"]
+  "cSpell.words": [
+    "nojekyll",
+    "ssh"
+  ]
 }

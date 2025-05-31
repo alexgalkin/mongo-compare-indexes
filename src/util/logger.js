@@ -25,5 +25,5 @@ class Logger {
   }
 }
 
-module.exports = new Logger();
+export default new Logger();
 // This module provides a simple logging utility that can be used throughout the application.

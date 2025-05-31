@@ -3,10 +3,11 @@
   "version": "0.9.0",
   "description": "compare indexes in two mongo instances",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
-    "start": "node index.js"
+    "start": "node run.js"
   },
   "repository": {
     "type": "git",
