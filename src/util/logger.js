@@ -1,10 +1,15 @@
 class Logger {
+  static instance = null;
   constructor() {
-    console.log('Logger initialized');
+    // console.log("Logger initialized");
   }
   log(message) {
     const timestamp = new Date().toISOString();
     console.log(`[${timestamp}] INFO: ${message}`);
+  }
+  info(message) {
+    const timestamp = new Date().toISOString();
+    console.info(`[${timestamp}] INFO: ${message}`);
   }
   error(message) {
     const timestamp = new Date().toISOString();
