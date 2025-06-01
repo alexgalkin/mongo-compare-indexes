@@ -24,11 +24,11 @@ async function main() {
     console.table(missingIndexesTarget, ["collection", "index_name", "index_value"]);
     console.log(`Total missing indexes in target: ${totalMissingTarget}`);
   } catch (error) {
-    logger.error("An error occurred:", error.stack || error.message);
-    logger.error("Please check your MongoDB connection strings and ensure the databases are accessible.");
+    console.error("An error occurred:", error.stack || error.message);
+    console.error("Please check your MongoDB connection strings and ensure the databases are accessible.");
   }
 }
 
 main().catch((error) => {
-  logger.error("Unhandled error during command execution:", error);
+  console.error("Unhandled error during command execution:", error);
 });
