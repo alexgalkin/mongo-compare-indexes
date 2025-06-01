@@ -29,6 +29,12 @@ npx mongo-compare-indexes run
 OR you can define the db URLs inline:
 
 ```
+npx mongo-compare-indexes run [options] [source-mongodb-url] [target-mongodb-url]
+```
+
+Example:
+
+```
 npx mongo-compare-indexes run mongodb://localhost:27017/db_name_source mongodb://localhost:27017/db_name_target
 ```
 
@@ -39,7 +45,7 @@ You can also use it within your project using `getMissingIndexes` method.
 Here is an example:
 
 ```js
-import { getMissingIndexes } from './index.js';
+import { getMissingIndexes } from 'mongo-compare-indexes';
 
 async function run {
   const targetUrl = process.env.TARGET_MONGO_URL; // you can replace it with your own variable

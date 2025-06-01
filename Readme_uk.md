@@ -5,11 +5,11 @@
 
 ## Приклад використання
 
-Вам може знадобиться порівняти індекси на різних серверах/середовищах (до прикладу, це може бути порівняння `локального` і `дев` сервера, або `продакшн` сервера і сервера для `тестування`).
+Вам може знадобитись порівняти індекси на різних серверах/середовищах (до прикладу, це може бути порівняння `локального` і `дев` сервера, або `продакшн` сервера і сервера для `тестування`).
 
 ## Використання (інтерфейс командного рядка)
 
-Команда потребує наявності двох змінних для сервери який порівнюють, і сервера з яким порівнюють (цільового та вихідного серверів), щоб порівняти їх індекси.
+Команда потребує наявності двох змінних для сервера, який порівнюють, і сервера з яким порівнюють (цільового та вихідного серверів), щоб знайти відсутні індекси в кожному з них.
 
 Це можна зробити за допомогою змінних середовища `TARGET_MONGO_URL` та `SOURCE_MONGO_URL`.
 
@@ -20,13 +20,19 @@ export TARGET_MONGO_URL="mongodb://user:pass@host:port/db_name"
 export SOURCE_MONGO_URL="mongodb://localhost/db_name"
 ```
 
-і потім просто запустити:
+і потім запустити:
 
 ```
 npx mongo-compare-indexes run
 ```
 
 АБО ви можете вказати посилання на сервери безпосередньо під час виконання команди:
+
+```
+npx mongo-compare-indexes run [options] [source-mongodb-url] [target-mongodb-url]
+```
+
+наприклад:
 
 ```
 npx mongo-compare-indexes run mongodb://localhost:27017/db_name_source mongodb://localhost:27017/db_name_target
@@ -39,7 +45,7 @@ npx mongo-compare-indexes run mongodb://localhost:27017/db_name_source mongodb:/
 Наприклад:
 
 ```js
-import { getMissingIndexes } from './index.js';
+import { getMissingIndexes } from 'mongo-compare-indexes';
 
 async function run {
   const targetUrl = process.env.TARGET_MONGO_URL; // ви можете використати вашу змінну тут

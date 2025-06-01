@@ -1,9 +1,9 @@
-import { getMissingIndexes } from './index.js';
+const { getMissingIndexes } = require("mongo-compare-indexes");
 
 async function main() {
   try {
-    const targetUrl = process.env.TARGET_MONGO_URL;
-    const sourceUrl = process.env.SOURCE_MONGO_URL;
+    const targetUrl = process.env.TARGET_MONGO_URL || 'mongodb://localhost:27017/db_name';
+    const sourceUrl = process.env.SOURCE_MONGO_URL || 'mongodb://localhost:27017/db_name';
 
     console.log("Starting MongoDB index comparison...");
     const missingIndexesResult = await getMissingIndexes(targetUrl, sourceUrl);
@@ -29,6 +29,6 @@ async function main() {
   }
 }
 
-main().catch(error => {
+main().catch((error) => {
   logger.error("Unhandled error during command execution:", error);
 });
