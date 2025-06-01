@@ -70,4 +70,4 @@ run()
 
 - [ ] Add Unit tests
 - [ ] Add support of `--skip-missing-collections` option to prevent showing `_id` indexes for the empty/missing collections
-- Rewrite with TypeScript
+- [ ] Rewrite with TypeScript
