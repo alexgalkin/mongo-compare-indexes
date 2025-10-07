@@ -47,7 +47,7 @@ Here is an example:
 ```js
 import { getMissingIndexes } from 'mongo-compare-indexes';
 
-async function run {
+async function run () {
   const targetUrl = process.env.TARGET_MONGO_URL; // you can replace it with your own variable
   const sourceUrl = process.env.SOURCE_MONGO_URL; // same here
 
@@ -62,7 +62,7 @@ async function run {
   }
 }
 
-run()
+run();
 
 ```
 
