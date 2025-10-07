@@ -32,7 +32,7 @@ async function getConnectionsToDbs(sourceUrl, targetUrl, dbOptions, debugNote) {
  * @returns {Promise<Array>} - A promise that resolves to an array of collection names.
  */
 async function getCollectionNames(conn) {
-  const dbCollections = await conn.db.listCollections().toArray();
+  const dbCollections = await conn.db.listCollections({ type: "collection" }).toArray();
   return dbCollections;
 }
 
@@ -157,7 +157,4 @@ async function executeIndexesComparison(sourceUrl, targetUrl, dbOptions, debugNo
   await targetConnection.close();
   await sourceConnection.close();
 }
-export {
-  getMissingIndexes,
-  executeIndexesComparison,
-};
+export { getMissingIndexes, executeIndexesComparison };
